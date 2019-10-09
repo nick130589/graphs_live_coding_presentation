@@ -8,6 +8,8 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 // TODO: 10/8/2019 Parametrized tests for dfs, bfs and djus
 // TODO: 10/8/2019 wrong realization for some test cases
 public class BFSTest {
@@ -41,13 +43,14 @@ public class BFSTest {
 
 
         //GIVEN
-
+        BSFImpl bsfImpl = new BSFImpl();
 
         //WHEN
-
+        List<Integer> actualAns = new ArrayList<>();
+        bsfImpl.bfs(from, graph, actualAns);
 
         //THEN
-
+        assertEquals(expectedAns, actualAns);
 
     }
 

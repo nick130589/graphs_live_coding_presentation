@@ -1,1 +1,1 @@
-Directed
+Cyclic undirected
