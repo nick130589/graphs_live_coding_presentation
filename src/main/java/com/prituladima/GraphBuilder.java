@@ -1,12 +1,12 @@
+package com.prituladima;
+
 import java.util.*;
 
+// TODO: 10/10/2019 Make creation of objects in utills and make methods return void
 public class GraphBuilder {
-    public static void main(String[] args) {
-        // TODO: 10/8/2019 implement logic here
-    }
 
     public static Map<Integer, Collection<Integer>> build(Scanner scanner){
-        // TODO: 10/9/2019 build graph from file
+        // TODO: 10/9/2019 DON'T COMMIT AND HIDE THIS FUNCTIONALITY
         return null;
     }
 
