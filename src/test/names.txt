@@ -1,1 +1,9 @@
 Cyclic undirected
+Directed
+Forest
+Multiple connected component
+Single vertex
+Single vertex with Loop
+Tree
+With Loops
+With multi-edge

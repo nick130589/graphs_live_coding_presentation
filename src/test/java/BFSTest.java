@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 // TODO: 10/8/2019 wrong realization for some test cases
 public class BFSTest {
 
-    private static final int AMOUNT_OF_TESTS = 1;
+    private static final int AMOUNT_OF_TESTS = 9;
 
     private static Supplier<Stream<Arguments>> ARGUMENTS_SUPPLIER = () -> {
         List<Arguments> ans = new ArrayList<>();
