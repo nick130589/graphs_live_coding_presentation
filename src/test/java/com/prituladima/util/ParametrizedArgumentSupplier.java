@@ -8,21 +8,29 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static com.prituladima.TestsReader.*;
+import static com.prituladima.TestsReader.readExpectedResult;
+import static com.prituladima.TestsReader.readGraph;
 
 public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>> {
 
+    public static final String BFS = "bfs";
+    public static final String DFS = "dfs";
+
     private static final String BASE = System.getProperty("user.dir");
     private static final int AMOUNT_OF_TESTS = 9;
-    private static ParametrizedArgumentSupplier supplier;
+    private static Map<String, ParametrizedArgumentSupplier> suppliers;
 
-    public static ParametrizedArgumentSupplier supplier() {
-        if (supplier == null)
-            return supplier = new ParametrizedArgumentSupplier();
-        else return supplier;
+    public static ParametrizedArgumentSupplier supplier(String type) {
+        suppliers = new HashMap<>();
+        suppliers.computeIfAbsent(BFS, key -> new ParametrizedArgumentSupplier(type));
+        suppliers.computeIfAbsent(DFS, key -> new ParametrizedArgumentSupplier(type));
+        return suppliers.get(type);
     }
 
-    private ParametrizedArgumentSupplier() {
+    private String type;
+
+    private ParametrizedArgumentSupplier(String type) {
+        this.type = type;
     }
 
     @Override
@@ -30,7 +38,7 @@ public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>>
         List<Arguments> ans = new ArrayList<>();
         try (Scanner namesScanner = new Scanner(new File(BASE + "/src/test/names.txt"));
              Scanner inScanner = new Scanner(new File(BASE + "/src/test/input.txt"));
-             Scanner outScanner = new Scanner(new File(BASE + "/src/test/output.dfs.txt"))) {
+             Scanner outScanner = new Scanner(new File(BASE + "/src/test/output." + type + ".txt"))) {
             for (int i = 0; i < AMOUNT_OF_TESTS; i++) {
                 String name = namesScanner.nextLine();
                 Map<Integer, Collection<Integer>> graph = new HashMap<>();
