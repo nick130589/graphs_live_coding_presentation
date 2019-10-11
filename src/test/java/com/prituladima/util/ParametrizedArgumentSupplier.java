@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static com.prituladima.GraphBuilder.*;
+import static com.prituladima.TestsReader.*;
 
 public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>> {
 
@@ -33,13 +33,15 @@ public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>>
              Scanner outScanner = new Scanner(new File(BASE + "/src/test/output.dfs.txt"))) {
             for (int i = 0; i < AMOUNT_OF_TESTS; i++) {
                 String name = namesScanner.nextLine();
-                Map<Integer, Collection<Integer>> graph = build(inScanner);
+                Map<Integer, Collection<Integer>> graph = new HashMap<>();
+                readGraph(graph, inScanner);
                 int from = inScanner.nextInt();
-                List<Integer> expectedResult = buildExpectedResult(outScanner);
+                List<Integer> expectedResult = new ArrayList<>();
+                readExpectedResult(expectedResult, outScanner);
                 ans.add(Arguments.of(name, graph, from, expectedResult));
             }
         } catch (FileNotFoundException e) {
-            System.out.println(e + "\n" + System.getProperty("user.dir"));
+            System.out.println(e);
         }
         return ans.stream();
     }
