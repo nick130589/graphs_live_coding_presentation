@@ -8,8 +8,7 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import static com.prituladima.TestsReader.readExpectedResult;
-import static com.prituladima.TestsReader.readGraph;
+import static com.prituladima.TestsReader.*;
 
 public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>> {
 
@@ -43,7 +42,7 @@ public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>>
                 String name = namesScanner.nextLine();
                 Map<Integer, Collection<Integer>> graph = new HashMap<>();
                 readGraph(graph, inScanner);
-                int from = inScanner.nextInt();
+                int from = readFrom(inScanner);
                 List<Integer> expectedResult = new ArrayList<>();
                 readExpectedResult(expectedResult, outScanner);
                 ans.add(Arguments.of(name, graph, from, expectedResult));
