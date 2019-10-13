@@ -2,11 +2,10 @@ package com.prituladima;
 
 import java.util.*;
 
-// TODO: 10/10/2019 Make creation of objects in utills and make methods return void
 public class TestsReader {
 
     public static void readGraph(Map<Integer, Collection<Integer>> graph, Scanner scanner) {
-        // TODO: 10/9/2019 DON'T COMMIT AND HIDE THIS FUNCTIONALITY
+        // TODO: 13.10.2019 Task 3: Build graph and make tests work
     }
 
     public static void readExpectedResult(List<Integer> ans, Scanner scanner) {
