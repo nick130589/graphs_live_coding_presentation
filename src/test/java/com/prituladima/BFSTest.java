@@ -11,8 +11,6 @@ import static com.prituladima.util.ParametrizedArgumentSupplier.BFS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.prituladima.util.ParametrizedArgumentSupplier.supplier;
 
-// TODO: 10/8/2019 Parametrized tests for dfs, bfs and djus
-// TODO: 10/8/2019 wrong realization for some test cases
 public class BFSTest {
 
     public static Stream<Arguments> ARGUMENTS = supplier(BFS).get();

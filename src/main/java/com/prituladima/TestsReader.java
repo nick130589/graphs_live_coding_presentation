@@ -5,7 +5,7 @@ import java.util.*;
 public class TestsReader {
 
     public static void readGraph(Map<Integer, Collection<Integer>> graph, Scanner scanner) {
-        // TODO: 13.10.2019 Task 3: Build graph and make tests work
+        // TODO: 13.10.2019 Task 1: Build graph and make tests work
     }
 
     public static int readFrom(Scanner scanner){
