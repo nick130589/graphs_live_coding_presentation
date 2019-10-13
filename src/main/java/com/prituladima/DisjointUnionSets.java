@@ -60,5 +60,6 @@ public class DisjointUnionSets {
             // rank by 1
             rank[xRoot]++;
         }
+        n--;
     }
 }
