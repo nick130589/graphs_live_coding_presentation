@@ -21,8 +21,8 @@ public class TestsReader {
     public static void readRequests(List<Request> requests, Scanner scanner) {
         int n = scanner.nextInt();
         while (n-- > 0) {
-            char type = scanner.next().charAt(0);
-            if (type == 'A')
+            String type = scanner.next();
+            if (Objects.equals(type, "AMOUNT"))
                 requests.add(new Request(type));
             else
                 requests.add(new Request(type, scanner.nextInt(), scanner.nextInt()));

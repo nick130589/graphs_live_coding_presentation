@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 
@@ -22,21 +23,20 @@ public class DJUSTest {
         DisjointUnionSets djus = new DisjointUnionSets(amountOfVertexes);
 
         int counter = 0;
-        for (int i = 0; i < requests.size(); i++) {
-            Request request = requests.get(i);
-            if (request.getType() == 'A') {
+        for (Request request : requests) {
+            if (Objects.equals(request.getType(), "AMOUNT")) {
                 int expected = expectedResults.get(counter++);
                 int actual = djus.getAmount();
                 assertEquals(expected, actual);
                 System.out.printf("Amount of connected component expected: %d; actual: %d\n", expected, actual);
 
-            } else if (request.getType() == 'C') {
+            } else if (Objects.equals(request.getType(), "JOIN")) {
                 int from = request.getFrom();
                 int to = request.getTo();
                 djus.union(from, to);
                 System.out.printf("Union of: %d <> %d\n", from, to);
 
-            } else if (request.getType() == 'R') {
+            } else if (Objects.equals(request.getType(), "CAN_GO?")) {
                 int from = request.getFrom();
                 int to = request.getTo();
 

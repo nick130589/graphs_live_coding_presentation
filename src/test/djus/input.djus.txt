@@ -1,8 +1,8 @@
 15 4
-A
-R 0 9
-C 0 2
-A
+AMOUNT
+CAN_GO? 0 9
+JOIN 0 2
+AMOUNT
 
 
 
