@@ -34,7 +34,7 @@ public class DJUSTest {
                 int from = request.getFrom();
                 int to = request.getTo();
                 djus.union(from, to);
-                System.out.printf("Union of: %d <> %d\n", from, to);
+                System.out.printf("Make union of: %d <> %d\n", from, to);
 
             } else if (Objects.equals(request.getType(), "CAN_GO?")) {
                 int from = request.getFrom();
@@ -44,7 +44,7 @@ public class DJUSTest {
                 boolean actualInTheSameSet = djus.isInSameSet(from, to);
                 assertEquals(expectedInTheSameSet, actualInTheSameSet);
 
-                System.out.printf("Vertexes are expected to be in the same union: %d <> %d\n", from, to);
+                System.out.printf("Vertexes are %sexpected to be in the same union: %d <> %d\n", expectedInTheSameSet ? "" : "not ", from, to);
 
 
             } else throw new IllegalStateException();
