@@ -1,19 +1,15 @@
 package com.prituladima;
 
-// A Java program to implement Disjoint Set Data
-// Structure.
-
 public class DisjointUnionSets {
 
     private int[] rank, parent;
-    private int n;
+    private int amount;
 
-    // Constructor
-    public DisjointUnionSets(int n) {
-        this.rank = new int[n];
-        this.parent = new int[n];
-        this.n = n;
-        for (int i = 0; i < n; i++) {
+    public DisjointUnionSets(int amount) {
+        this.rank = new int[amount];
+        this.parent = new int[amount];
+        this.amount = amount;
+        for (int i = 0; i < amount; i++) {
             parent[i] = i;
         }
     }
@@ -22,7 +18,7 @@ public class DisjointUnionSets {
         return find(u) == find(v);
     }
 
-    public int find(int x) {
+    private int find(int x) {
         while (parent[x] != x) x = parent[x];
         return x;
     }
@@ -60,6 +56,10 @@ public class DisjointUnionSets {
             // rank by 1
             rank[xRoot]++;
         }
-        n--;
+        amount--;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 }

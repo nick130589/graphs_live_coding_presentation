@@ -42,7 +42,7 @@ public class ParametrizedArgumentSupplier implements Supplier<Stream<Arguments>>
                 String name = namesScanner.nextLine();
                 Map<Integer, Collection<Integer>> graph = new HashMap<>();
                 readGraph(graph, inScanner);
-                int from = readFrom(inScanner);
+                int from = readFromVertex(inScanner);
                 List<Integer> expectedResult = new ArrayList<>();
                 readExpectedResult(expectedResult, outScanner);
                 ans.add(Arguments.of(name, graph, from, expectedResult));
