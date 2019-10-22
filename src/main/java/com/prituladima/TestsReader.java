@@ -9,7 +9,8 @@ public class TestsReader {
     }
 
     public static int readFromVertex(Scanner scanner) {
-//        return scanner.nextInt();
+        // TODO: 22.10.2019 uncomment
+        //  return scanner.nextInt();
         return 0;
     }
 
