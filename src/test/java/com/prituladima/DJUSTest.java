@@ -22,10 +22,10 @@ public class DJUSTest {
     public void test_disjoint_union_sets(int amountOfVertexes, List<Request> requests, List<Integer> expectedResults) {
         DisjointUnionSets djus = new DisjointUnionSets(amountOfVertexes);
 
-        int counter = 0;
+        int pointer = 0;
         for (Request request : requests) {
             if (Objects.equals(request.getType(), "AMOUNT")) {
-                int expected = expectedResults.get(counter++);
+                int expected = expectedResults.get(pointer++);
                 int actual = djus.getAmount();
                 assertEquals(expected, actual);
                 System.out.printf("Amount of connected component expected: %d; actual: %d\n", expected, actual);
@@ -40,7 +40,7 @@ public class DJUSTest {
                 int from = request.getFrom();
                 int to = request.getTo();
 
-                boolean expectedInTheSameSet = expectedResults.get(counter++) == 1;
+                boolean expectedInTheSameSet = expectedResults.get(pointer++) == 1;
                 boolean actualInTheSameSet = djus.isInSameSet(from, to);
                 assertEquals(expectedInTheSameSet, actualInTheSameSet);
 
