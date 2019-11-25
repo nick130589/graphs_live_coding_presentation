@@ -20,7 +20,6 @@ public class DFSTest {
     @ParameterizedTest
     @VariableSource("ARGUMENTS")
     void test_dfs_order(String name, Map<Integer, Collection<Integer>> graph, int from, List<Integer> expectedAns) {
-
         //GIVEN
         DFSImpl bfsImpl = new DFSImpl();
 
